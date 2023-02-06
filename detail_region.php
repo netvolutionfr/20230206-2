@@ -9,3 +9,8 @@ $stmt->execute(['code_region' => $code_region]);
 $region = $stmt->fetchObject('Region');
 
 echo "<h1>" . $region->name . "</h1>";
+
+$departments = $region->getDepartments();
+foreach ($departments as $department) {
+    echo '<a href="detail_departement.php?code_departement=' . $department->code .'">' . $department->name . '</a><br>';
+}
